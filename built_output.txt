@@ -1,0 +1,863 @@
+Started by user Anchhy
+Running Pipeline
+[Pipeline] sh
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< com.example:demo >--------------------------
+[INFO] Building terrain-rental 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ demo ---
+[INFO] Deleting /app/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ demo ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ demo ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 22 source files with javac [debug parameters release 25] to target/classes
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by lombok.permit.Permit
+WARNING: Please consider reporting this to the maintainers of class lombok.permit.Permit
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ demo ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ demo ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 7 source files with javac [debug parameters release 25] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.3:test (default-test) @ demo ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.demo.DemoApplicationTests
+16:51:33.606 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.demo.DemoApplicationTests]: DemoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:51:33.653 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.DemoApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.5)
+
+2026-06-16T16:51:33.820Z  INFO 12821 --- [           main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 25.0.3 with PID 12821 (started by root in /app)
+2026-06-16T16:51:33.820Z  INFO 12821 --- [           main] com.example.demo.DemoApplicationTests    : The following 1 profile is active: "test"
+2026-06-16T16:51:34.087Z  INFO 12821 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-16T16:51:34.118Z  INFO 12821 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 6 JPA repository interfaces.
+2026-06-16T16:51:34.280Z  INFO 12821 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-16T16:51:34.300Z  INFO 12821 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2026-06-16T16:51:34.313Z  INFO 12821 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-16T16:51:34.437Z  INFO 12821 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-16T16:51:34.449Z  INFO 12821 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.sqlite.SQLiteJDBCLoader in an unnamed module (file:/root/.m2/repository/org/xerial/sqlite-jdbc/3.45.2.0/sqlite-jdbc-3.45.2.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2026-06-16T16:51:34.519Z  INFO 12821 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@7cc2c551
+2026-06-16T16:51:34.520Z  INFO 12821 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-16T16:51:34.537Z  INFO 12821 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 3.45.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-16T16:51:34.942Z  INFO 12821 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    drop table if exists bookings
+Hibernate: 
+    drop table if exists favorites
+Hibernate: 
+    drop table if exists payments
+Hibernate: 
+    drop table if exists reviews
+Hibernate: 
+    drop table if exists terrain_images
+Hibernate: 
+    drop table if exists terrains
+Hibernate: 
+    create table bookings (
+        total_price numeric(38,2) not null,
+        created_at timestamp,
+        end_date timestamp not null,
+        id integer,
+        renter_id bigint not null,
+        start_date timestamp not null,
+        terrain_id bigint not null,
+        updated_at timestamp,
+        status varchar(255) not null check (status in ('PENDING','APPROVED','REJECTED','CANCELLED','COMPLETED')),
+        primary key (id)
+    )
+Hibernate: 
+    create table favorites (
+        created_at timestamp,
+        id integer,
+        terrain_id bigint not null,
+        updated_at timestamp,
+        user_id bigint not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table payments (
+        amount_paid numeric(38,2) not null,
+        booking_id bigint not null unique,
+        id integer,
+        payment_date timestamp not null,
+        payment_method varchar(255) not null,
+        status varchar(255) not null check (status in ('PAID','FAILED','REFUNDED')),
+        transaction_id varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table reviews (
+        rating integer not null check ((rating<=5) and (rating>=1)),
+        created_at timestamp,
+        id integer,
+        terrain_id bigint not null,
+        updated_at timestamp,
+        user_id bigint not null,
+        comment TEXT,
+        primary key (id)
+    )
+Hibernate: 
+    create table terrain_images (
+        id integer,
+        terrain_id bigint not null,
+        uploaded_at timestamp,
+        image_path varchar(255) not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table terrains (
+        area_size numeric(38,2) not null,
+        is_available boolean not null,
+        price_per_day numeric(38,2) not null,
+        available_from timestamp,
+        available_to timestamp,
+        created_at timestamp,
+        id integer,
+        main_image_id bigint unique,
+        owner_id bigint not null,
+        updated_at timestamp,
+        description TEXT,
+        location varchar(255) not null,
+        title varchar(255) not null,
+        primary key (id)
+    )
+2026-06-16T16:51:34.975Z  INFO 12821 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-16T16:51:35.153Z  WARN 12821 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-16T16:51:35.339Z  INFO 12821 --- [           main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 1.626 seconds (process running for 2.072)
+Hibernate: 
+    select
+        count(*) 
+    from
+        terrains t1_0
+Seeding database...
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        terrain_images
+        (image_path, terrain_id, uploaded_at) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        terrain_images
+        (image_path, terrain_id, uploaded_at) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        terrain_images
+        (image_path, terrain_id, uploaded_at) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.area_size,
+        t1_0.available_from,
+        t1_0.available_to,
+        t1_0.created_at,
+        t1_0.description,
+        t1_0.is_available,
+        t1_0.location,
+        mi1_0.id,
+        mi1_0.image_path,
+        mi1_0.terrain_id,
+        mi1_0.uploaded_at,
+        t1_0.owner_id,
+        t1_0.price_per_day,
+        t1_0.title,
+        t1_0.updated_at 
+    from
+        terrains t1_0 
+    left join
+        terrain_images mi1_0 
+            on mi1_0.id=t1_0.main_image_id 
+    where
+        t1_0.id=?
+Hibernate: 
+    select
+        ti1_0.id,
+        ti1_0.image_path,
+        ti1_0.terrain_id,
+        ti1_0.uploaded_at 
+    from
+        terrain_images ti1_0 
+    where
+        ti1_0.id=?
+Hibernate: 
+    update
+        terrains 
+    set
+        area_size=?,
+        available_from=?,
+        available_to=?,
+        description=?,
+        is_available=?,
+        location=?,
+        main_image_id=?,
+        owner_id=?,
+        price_per_day=?,
+        title=?,
+        updated_at=? 
+    where
+        id=?
+Hibernate: 
+    select
+        t1_0.id,
+        t1_0.area_size,
+        t1_0.available_from,
+        t1_0.available_to,
+        t1_0.created_at,
+        t1_0.description,
+        t1_0.is_available,
+        t1_0.location,
+        mi1_0.id,
+        mi1_0.image_path,
+        mi1_0.terrain_id,
+        mi1_0.uploaded_at,
+        t1_0.owner_id,
+        t1_0.price_per_day,
+        t1_0.title,
+        t1_0.updated_at 
+    from
+        terrains t1_0 
+    left join
+        terrain_images mi1_0 
+            on mi1_0.id=t1_0.main_image_id 
+    where
+        t1_0.id=?
+Hibernate: 
+    select
+        ti1_0.id,
+        ti1_0.image_path,
+        ti1_0.terrain_id,
+        ti1_0.uploaded_at 
+    from
+        terrain_images ti1_0 
+    where
+        ti1_0.id=?
+Hibernate: 
+    update
+        terrains 
+    set
+        area_size=?,
+        available_from=?,
+        available_to=?,
+        description=?,
+        is_available=?,
+        location=?,
+        main_image_id=?,
+        owner_id=?,
+        price_per_day=?,
+        title=?,
+        updated_at=? 
+    where
+        id=?
+Hibernate: 
+    insert 
+    into
+        bookings
+        (created_at, end_date, renter_id, start_date, status, terrain_id, total_price, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        bookings
+        (created_at, end_date, renter_id, start_date, status, terrain_id, total_price, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        payments
+        (amount_paid, booking_id, payment_date, payment_method, status, transaction_id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        reviews
+        (comment, created_at, rating, terrain_id, updated_at, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        reviews
+        (comment, created_at, rating, terrain_id, updated_at, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        favorites
+        (created_at, terrain_id, updated_at, user_id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        favorites
+        (created_at, terrain_id, updated_at, user_id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Database seeding completed!
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.15.11/byte-buddy-agent-1.15.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.399 s -- in com.example.demo.DemoApplicationTests
+[INFO] Running com.example.demo.repository.ReviewRepositoryTest
+2026-06-16T16:51:35.950Z  INFO 12821 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.demo.repository.ReviewRepositoryTest]: ReviewRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-16T16:51:35.960Z  INFO 12821 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.repository.ReviewRepositoryTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.5)
+
+2026-06-16T16:51:35.971Z  INFO 12821 --- [           main] c.e.d.repository.ReviewRepositoryTest    : Starting ReviewRepositoryTest using Java 25.0.3 with PID 12821 (started by root in /app)
+2026-06-16T16:51:35.971Z  INFO 12821 --- [           main] c.e.d.repository.ReviewRepositoryTest    : The following 1 profile is active: "test"
+2026-06-16T16:51:35.998Z  INFO 12821 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-16T16:51:36.003Z  INFO 12821 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 6 JPA repository interfaces.
+2026-06-16T16:51:36.025Z  INFO 12821 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-16T16:51:36.027Z  INFO 12821 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-16T16:51:36.030Z  INFO 12821 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-16T16:51:36.031Z  INFO 12821 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-06-16T16:51:36.031Z  INFO 12821 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.sqlite.jdbc4.JDBC4Connection@3003d288
+2026-06-16T16:51:36.032Z  INFO 12821 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-06-16T16:51:36.032Z  INFO 12821 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 3.45.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-16T16:51:36.056Z  INFO 12821 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    drop table if exists bookings
+Hibernate: 
+    drop table if exists favorites
+Hibernate: 
+    drop table if exists payments
+Hibernate: 
+    drop table if exists reviews
+Hibernate: 
+    drop table if exists terrain_images
+Hibernate: 
+    drop table if exists terrains
+Hibernate: 
+    create table bookings (
+        total_price numeric(38,2) not null,
+        created_at timestamp,
+        end_date timestamp not null,
+        id integer,
+        renter_id bigint not null,
+        start_date timestamp not null,
+        terrain_id bigint not null,
+        updated_at timestamp,
+        status varchar(255) not null check (status in ('PENDING','APPROVED','REJECTED','CANCELLED','COMPLETED')),
+        primary key (id)
+    )
+Hibernate: 
+    create table favorites (
+        created_at timestamp,
+        id integer,
+        terrain_id bigint not null,
+        updated_at timestamp,
+        user_id bigint not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table payments (
+        amount_paid numeric(38,2) not null,
+        booking_id bigint not null unique,
+        id integer,
+        payment_date timestamp not null,
+        payment_method varchar(255) not null,
+        status varchar(255) not null check (status in ('PAID','FAILED','REFUNDED')),
+        transaction_id varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table reviews (
+        rating integer not null check ((rating<=5) and (rating>=1)),
+        created_at timestamp,
+        id integer,
+        terrain_id bigint not null,
+        updated_at timestamp,
+        user_id bigint not null,
+        comment TEXT,
+        primary key (id)
+    )
+Hibernate: 
+    create table terrain_images (
+        id integer,
+        terrain_id bigint not null,
+        uploaded_at timestamp,
+        image_path varchar(255) not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table terrains (
+        area_size numeric(38,2) not null,
+        is_available boolean not null,
+        price_per_day numeric(38,2) not null,
+        available_from timestamp,
+        available_to timestamp,
+        created_at timestamp,
+        id integer,
+        main_image_id bigint unique,
+        owner_id bigint not null,
+        updated_at timestamp,
+        description TEXT,
+        location varchar(255) not null,
+        title varchar(255) not null,
+        primary key (id)
+    )
+2026-06-16T16:51:36.158Z  INFO 12821 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-16T16:51:36.196Z  INFO 12821 --- [           main] c.e.d.repository.ReviewRepositoryTest    : Started ReviewRepositoryTest in 0.234 seconds (process running for 2.929)
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        reviews
+        (comment, created_at, rating, terrain_id, updated_at, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        reviews
+        (comment, created_at, rating, terrain_id, updated_at, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.263 s -- in com.example.demo.repository.ReviewRepositoryTest
+[INFO] Running com.example.demo.repository.FavoriteRepositoryTest
+2026-06-16T16:51:36.213Z  INFO 12821 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.demo.repository.FavoriteRepositoryTest]: FavoriteRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-16T16:51:36.215Z  INFO 12821 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.repository.FavoriteRepositoryTest
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        favorites
+        (created_at, terrain_id, updated_at, user_id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        favorites
+        (created_at, terrain_id, updated_at, user_id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in com.example.demo.repository.FavoriteRepositoryTest
+[INFO] Running com.example.demo.repository.TerrainImageRepositoryTest
+2026-06-16T16:51:36.226Z  INFO 12821 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.demo.repository.TerrainImageRepositoryTest]: TerrainImageRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-16T16:51:36.228Z  INFO 12821 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.repository.TerrainImageRepositoryTest
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        terrain_images
+        (image_path, terrain_id, uploaded_at) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        terrain_images
+        (image_path, terrain_id, uploaded_at) 
+    values
+        (?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in com.example.demo.repository.TerrainImageRepositoryTest
+[INFO] Running com.example.demo.repository.PaymentRepositoryTest
+2026-06-16T16:51:36.238Z  INFO 12821 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.demo.repository.PaymentRepositoryTest]: PaymentRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-16T16:51:36.241Z  INFO 12821 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.repository.PaymentRepositoryTest
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        bookings
+        (created_at, end_date, renter_id, start_date, status, terrain_id, total_price, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        payments
+        (amount_paid, booking_id, payment_date, payment_method, status, transaction_id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        bookings
+        (created_at, end_date, renter_id, start_date, status, terrain_id, total_price, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        payments
+        (amount_paid, booking_id, payment_date, payment_method, status, transaction_id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in com.example.demo.repository.PaymentRepositoryTest
+[INFO] Running com.example.demo.repository.BookingRepositoryTest
+2026-06-16T16:51:36.252Z  INFO 12821 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.demo.repository.BookingRepositoryTest]: BookingRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-16T16:51:36.254Z  INFO 12821 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.repository.BookingRepositoryTest
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        bookings
+        (created_at, end_date, renter_id, start_date, status, terrain_id, total_price, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        bookings
+        (created_at, end_date, renter_id, start_date, status, terrain_id, total_price, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in com.example.demo.repository.BookingRepositoryTest
+[INFO] Running com.example.demo.repository.TerrainRepositoryTest
+2026-06-16T16:51:36.264Z  INFO 12821 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.demo.repository.TerrainRepositoryTest]: TerrainRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-16T16:51:36.266Z  INFO 12821 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.repository.TerrainRepositoryTest
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+Hibernate: 
+    insert 
+    into
+        terrains
+        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        last_insert_rowid()
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.example.demo.repository.TerrainRepositoryTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.886 s
+[INFO] Finished at: 2026-06-16T16:51:36Z
+[INFO] ------------------------------------------------------------------------
+[Pipeline] sh
+
+PLAY [Web Server Operations (CHOICE_A)] ****************************************
+
+TASK [Install required CLI tools (composer, npm, mysql-client, sqlite3)] *******
+changed: [web_server]
+
+TASK [Ensure no local changes exist before pulling] ****************************
+[WARNING]: Host 'web_server' is using the discovered Python interpreter at '/usr/bin/python3.12', but future installation of another Python interpreter could cause a different interpreter to be discovered. See https://docs.ansible.com/ansible-core/2.20/reference_appendices/interpreter_discovery.html for more information.
+changed: [web_server]
+
+TASK [Run git pull] ************************************************************
+changed: [web_server]
+
+TASK [Build composer] **********************************************************
+[ERROR]: Task failed: Module failed: non-zero return code
+Origin: /home/anchhy/2final/demo/ansible/playbook.yml:20:7
+
+18         chdir: /app
+19
+20     - name: Build composer
+         ^ column 7
+
+fatal: [web_server]: FAILED! => {"changed": true, "cmd": ["composer", "install", "--no-interaction"], "delta": "0:00:00.041111", "end": "2026-06-16 16:51:43.863072", "msg": "non-zero return code", "rc": 1, "start": "2026-06-16 16:51:43.821961", "stderr": "Composer could not find a composer.json file in /app\nTo initialize a project, please create a composer.json file. See https://getcomposer.org/basic-usage", "stderr_lines": ["Composer could not find a composer.json file in /app", "To initialize a project, please create a composer.json file. See https://getcomposer.org/basic-usage"], "stdout": "", "stdout_lines": []}
+...ignoring
+
+TASK [Show composer output] ****************************************************
+ok: [web_server] => {
+    "composer_result.stdout": ""
+}
+
+TASK [Build npm] ***************************************************************
+[ERROR]: Task failed: Module failed: non-zero return code
+Origin: /home/anchhy/2final/demo/ansible/playbook.yml:31:7
+
+29         var: composer_result.stdout
+30
+31     - name: Build npm
+         ^ column 7
+
+fatal: [web_server]: FAILED! => {"changed": true, "cmd": ["npm", "install"], "delta": "0:00:00.272493", "end": "2026-06-16 16:51:44.846725", "msg": "non-zero return code", "rc": 254, "start": "2026-06-16 16:51:44.574232", "stderr": "npm ERR! code ENOENT\nnpm ERR! syscall open\nnpm ERR! path /app/package.json\nnpm ERR! errno -2\nnpm ERR! enoent ENOENT: no such file or directory, open '/app/package.json'\nnpm ERR! enoent This is related to npm not being able to find a file.\nnpm ERR! enoent \n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /root/.npm/_logs/2026-06-16T16_51_44_808Z-debug-0.log", "stderr_lines": ["npm ERR! code ENOENT", "npm ERR! syscall open", "npm ERR! path /app/package.json", "npm ERR! errno -2", "npm ERR! enoent ENOENT: no such file or directory, open '/app/package.json'", "npm ERR! enoent This is related to npm not being able to find a file.", "npm ERR! enoent ", "", "npm ERR! A complete log of this run can be found in:", "npm ERR!     /root/.npm/_logs/2026-06-16T16_51_44_808Z-debug-0.log"], "stdout": "", "stdout_lines": []}
+...ignoring
+
+TASK [Show npm output] *********************************************************
+ok: [web_server] => {
+    "npm_result.stdout": ""
+}
+
+TASK [Run tests against SQLite db] *********************************************
+changed: [web_server]
+
+TASK [Show test output] ********************************************************
+ok: [web_server] => {
+    "test_result.stdout": "[INFO] Scanning for projects...\n[INFO] \n[INFO] --------------------------< com.example:demo >--------------------------\n[INFO] Building terrain-rental 0.0.1-SNAPSHOT\n[INFO]   from pom.xml\n[INFO] --------------------------------[ jar ]---------------------------------\n[INFO] \n[INFO] --- resources:3.3.1:resources (default-resources) @ demo ---\n[INFO] Copying 1 resource from src/main/resources to target/classes\n[INFO] Copying 0 resource from src/main/resources to target/classes\n[INFO] \n[INFO] --- compiler:3.13.0:compile (default-compile) @ demo ---\n[INFO] Nothing to compile - all classes are up to date.\n[INFO] \n[INFO] --- resources:3.3.1:testResources (default-testResources) @ demo ---\n[INFO] Copying 1 resource from src/test/resources to target/test-classes\n[INFO] \n[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ demo ---\n[INFO] Nothing to compile - all classes are up to date.\n[INFO] \n[INFO] --- surefire:3.5.3:test (default-test) @ demo ---\n[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider\n[INFO] \n[INFO] -------------------------------------------------------\n[INFO]  T E S T S\n[INFO] -------------------------------------------------------\n[INFO] Running com.example.demo.DemoApplicationTests\n16:51:46.972 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.demo.DemoApplicationTests]: DemoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.\n16:51:47.020 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.DemoApplicationTests\n\n  .   ____          _            __ _ _\n /\\\\ / ___'_ __ _ _(_)_ __  __ _ \\ \\ \\ \\\n( ( )\\___ | '_ | '_| | '_ \\/ _` | \\ \\ \\ \\\n \\\\/  ___)| |_)| | | | | || (_| |  ) ) ) )\n  '  |____| .__|_| |_|_| |_\\__, | / / / /\n =========|_|==============|___/=/_/_/_/\n\n :: Spring Boot ::                (v3.4.5)\n\n2026-06-16T16:51:47.190Z  INFO 13556 --- [           main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 25.0.3 with PID 13556 (started by root in /app)\n2026-06-16T16:51:47.191Z  INFO 13556 --- [           main] com.example.demo.DemoApplicationTests    : The following 1 profile is active: \"test\"\n2026-06-16T16:51:47.442Z  INFO 13556 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.\n2026-06-16T16:51:47.479Z  INFO 13556 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 6 JPA repository interfaces.\n2026-06-16T16:51:47.635Z  INFO 13556 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]\n2026-06-16T16:51:47.656Z  INFO 13556 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final\n2026-06-16T16:51:47.679Z  INFO 13556 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled\n2026-06-16T16:51:47.798Z  INFO 13556 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer\n2026-06-16T16:51:47.811Z  INFO 13556 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...\n2026-06-16T16:51:47.876Z  INFO 13556 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@11e17893\n2026-06-16T16:51:47.877Z  INFO 13556 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.\n2026-06-16T16:51:47.893Z  INFO 13556 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:\n\tDatabase JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']\n\tDatabase driver: undefined/unknown\n\tDatabase version: 3.45.2\n\tAutocommit mode: undefined/unknown\n\tIsolation level: undefined/unknown\n\tMinimum pool size: undefined/unknown\n\tMaximum pool size: undefined/unknown\n2026-06-16T16:51:48.282Z  INFO 13556 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)\nHibernate: \n    drop table if exists bookings\nHibernate: \n    drop table if exists favorites\nHibernate: \n    drop table if exists payments\nHibernate: \n    drop table if exists reviews\nHibernate: \n    drop table if exists terrain_images\nHibernate: \n    drop table if exists terrains\nHibernate: \n    create table bookings (\n        total_price numeric(38,2) not null,\n        created_at timestamp,\n        end_date timestamp not null,\n        id integer,\n        renter_id bigint not null,\n        start_date timestamp not null,\n        terrain_id bigint not null,\n        updated_at timestamp,\n        status varchar(255) not null check (status in ('PENDING','APPROVED','REJECTED','CANCELLED','COMPLETED')),\n        primary key (id)\n    )\nHibernate: \n    create table favorites (\n        created_at timestamp,\n        id integer,\n        terrain_id bigint not null,\n        updated_at timestamp,\n        user_id bigint not null,\n        primary key (id)\n    )\nHibernate: \n    create table payments (\n        amount_paid numeric(38,2) not null,\n        booking_id bigint not null unique,\n        id integer,\n        payment_date timestamp not null,\n        payment_method varchar(255) not null,\n        status varchar(255) not null check (status in ('PAID','FAILED','REFUNDED')),\n        transaction_id varchar(255),\n        primary key (id)\n    )\nHibernate: \n    create table reviews (\n        rating integer not null check ((rating<=5) and (rating>=1)),\n        created_at timestamp,\n        id integer,\n        terrain_id bigint not null,\n        updated_at timestamp,\n        user_id bigint not null,\n        comment TEXT,\n        primary key (id)\n    )\nHibernate: \n    create table terrain_images (\n        id integer,\n        terrain_id bigint not null,\n        uploaded_at timestamp,\n        image_path varchar(255) not null,\n        primary key (id)\n    )\nHibernate: \n    create table terrains (\n        area_size numeric(38,2) not null,\n        is_available boolean not null,\n        price_per_day numeric(38,2) not null,\n        available_from timestamp,\n        available_to timestamp,\n        created_at timestamp,\n        id integer,\n        main_image_id bigint unique,\n        owner_id bigint not null,\n        updated_at timestamp,\n        description TEXT,\n        location varchar(255) not null,\n        title varchar(255) not null,\n        primary key (id)\n    )\n2026-06-16T16:51:48.309Z  INFO 13556 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'\n2026-06-16T16:51:48.517Z  WARN 13556 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning\n2026-06-16T16:51:48.718Z  INFO 13556 --- [           main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 1.637 seconds (process running for 2.073)\nHibernate: \n    select\n        count(*) \n    from\n        terrains t1_0\nSeeding database...\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        terrain_images\n        (image_path, terrain_id, uploaded_at) \n    values\n        (?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        terrain_images\n        (image_path, terrain_id, uploaded_at) \n    values\n        (?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        terrain_images\n        (image_path, terrain_id, uploaded_at) \n    values\n        (?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    select\n        t1_0.id,\n        t1_0.area_size,\n        t1_0.available_from,\n        t1_0.available_to,\n        t1_0.created_at,\n        t1_0.description,\n        t1_0.is_available,\n        t1_0.location,\n        mi1_0.id,\n        mi1_0.image_path,\n        mi1_0.terrain_id,\n        mi1_0.uploaded_at,\n        t1_0.owner_id,\n        t1_0.price_per_day,\n        t1_0.title,\n        t1_0.updated_at \n    from\n        terrains t1_0 \n    left join\n        terrain_images mi1_0 \n            on mi1_0.id=t1_0.main_image_id \n    where\n        t1_0.id=?\nHibernate: \n    select\n        ti1_0.id,\n        ti1_0.image_path,\n        ti1_0.terrain_id,\n        ti1_0.uploaded_at \n    from\n        terrain_images ti1_0 \n    where\n        ti1_0.id=?\nHibernate: \n    update\n        terrains \n    set\n        area_size=?,\n        available_from=?,\n        available_to=?,\n        description=?,\n        is_available=?,\n        location=?,\n        main_image_id=?,\n        owner_id=?,\n        price_per_day=?,\n        title=?,\n        updated_at=? \n    where\n        id=?\nHibernate: \n    select\n        t1_0.id,\n        t1_0.area_size,\n        t1_0.available_from,\n        t1_0.available_to,\n        t1_0.created_at,\n        t1_0.description,\n        t1_0.is_available,\n        t1_0.location,\n        mi1_0.id,\n        mi1_0.image_path,\n        mi1_0.terrain_id,\n        mi1_0.uploaded_at,\n        t1_0.owner_id,\n        t1_0.price_per_day,\n        t1_0.title,\n        t1_0.updated_at \n    from\n        terrains t1_0 \n    left join\n        terrain_images mi1_0 \n            on mi1_0.id=t1_0.main_image_id \n    where\n        t1_0.id=?\nHibernate: \n    select\n        ti1_0.id,\n        ti1_0.image_path,\n        ti1_0.terrain_id,\n        ti1_0.uploaded_at \n    from\n        terrain_images ti1_0 \n    where\n        ti1_0.id=?\nHibernate: \n    update\n        terrains \n    set\n        area_size=?,\n        available_from=?,\n        available_to=?,\n        description=?,\n        is_available=?,\n        location=?,\n        main_image_id=?,\n        owner_id=?,\n        price_per_day=?,\n        title=?,\n        updated_at=? \n    where\n        id=?\nHibernate: \n    insert \n    into\n        bookings\n        (created_at, end_date, renter_id, start_date, status, terrain_id, total_price, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        bookings\n        (created_at, end_date, renter_id, start_date, status, terrain_id, total_price, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        payments\n        (amount_paid, booking_id, payment_date, payment_method, status, transaction_id) \n    values\n        (?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        reviews\n        (comment, created_at, rating, terrain_id, updated_at, user_id) \n    values\n        (?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        reviews\n        (comment, created_at, rating, terrain_id, updated_at, user_id) \n    values\n        (?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        favorites\n        (created_at, terrain_id, updated_at, user_id) \n    values\n        (?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        favorites\n        (created_at, terrain_id, updated_at, user_id) \n    values\n        (?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nDatabase seeding completed!\n[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.372 s -- in com.example.demo.DemoApplicationTests\n[INFO] Running com.example.demo.repository.ReviewRepositoryTest\n2026-06-16T16:51:49.286Z  INFO 13556 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.demo.repository.ReviewRepositoryTest]: ReviewRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.\n2026-06-16T16:51:49.296Z  INFO 13556 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.repository.ReviewRepositoryTest\n\n  .   ____          _            __ _ _\n /\\\\ / ___'_ __ _ _(_)_ __  __ _ \\ \\ \\ \\\n( ( )\\___ | '_ | '_| | '_ \\/ _` | \\ \\ \\ \\\n \\\\/  ___)| |_)| | | | | || (_| |  ) ) ) )\n  '  |____| .__|_| |_|_| |_\\__, | / / / /\n =========|_|==============|___/=/_/_/_/\n\n :: Spring Boot ::                (v3.4.5)\n\n2026-06-16T16:51:49.309Z  INFO 13556 --- [           main] c.e.d.repository.ReviewRepositoryTest    : Starting ReviewRepositoryTest using Java 25.0.3 with PID 13556 (started by root in /app)\n2026-06-16T16:51:49.310Z  INFO 13556 --- [           main] c.e.d.repository.ReviewRepositoryTest    : The following 1 profile is active: \"test\"\n2026-06-16T16:51:49.351Z  INFO 13556 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.\n2026-06-16T16:51:49.356Z  INFO 13556 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 6 JPA repository interfaces.\n2026-06-16T16:51:49.380Z  INFO 13556 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]\n2026-06-16T16:51:49.381Z  INFO 13556 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled\n2026-06-16T16:51:49.385Z  INFO 13556 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer\n2026-06-16T16:51:49.386Z  INFO 13556 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...\n2026-06-16T16:51:49.386Z  INFO 13556 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.sqlite.jdbc4.JDBC4Connection@5128efc\n2026-06-16T16:51:49.386Z  INFO 13556 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.\n2026-06-16T16:51:49.387Z  INFO 13556 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:\n\tDatabase JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']\n\tDatabase driver: undefined/unknown\n\tDatabase version: 3.45.2\n\tAutocommit mode: undefined/unknown\n\tIsolation level: undefined/unknown\n\tMinimum pool size: undefined/unknown\n\tMaximum pool size: undefined/unknown\n2026-06-16T16:51:49.426Z  INFO 13556 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)\nHibernate: \n    drop table if exists bookings\nHibernate: \n    drop table if exists favorites\nHibernate: \n    drop table if exists payments\nHibernate: \n    drop table if exists reviews\nHibernate: \n    drop table if exists terrain_images\nHibernate: \n    drop table if exists terrains\nHibernate: \n    create table bookings (\n        total_price numeric(38,2) not null,\n        created_at timestamp,\n        end_date timestamp not null,\n        id integer,\n        renter_id bigint not null,\n        start_date timestamp not null,\n        terrain_id bigint not null,\n        updated_at timestamp,\n        status varchar(255) not null check (status in ('PENDING','APPROVED','REJECTED','CANCELLED','COMPLETED')),\n        primary key (id)\n    )\nHibernate: \n    create table favorites (\n        created_at timestamp,\n        id integer,\n        terrain_id bigint not null,\n        updated_at timestamp,\n        user_id bigint not null,\n        primary key (id)\n    )\nHibernate: \n    create table payments (\n        amount_paid numeric(38,2) not null,\n        booking_id bigint not null unique,\n        id integer,\n        payment_date timestamp not null,\n        payment_method varchar(255) not null,\n        status varchar(255) not null check (status in ('PAID','FAILED','REFUNDED')),\n        transaction_id varchar(255),\n        primary key (id)\n    )\nHibernate: \n    create table reviews (\n        rating integer not null check ((rating<=5) and (rating>=1)),\n        created_at timestamp,\n        id integer,\n        terrain_id bigint not null,\n        updated_at timestamp,\n        user_id bigint not null,\n        comment TEXT,\n        primary key (id)\n    )\nHibernate: \n    create table terrain_images (\n        id integer,\n        terrain_id bigint not null,\n        uploaded_at timestamp,\n        image_path varchar(255) not null,\n        primary key (id)\n    )\nHibernate: \n    create table terrains (\n        area_size numeric(38,2) not null,\n        is_available boolean not null,\n        price_per_day numeric(38,2) not null,\n        available_from timestamp,\n        available_to timestamp,\n        created_at timestamp,\n        id integer,\n        main_image_id bigint unique,\n        owner_id bigint not null,\n        updated_at timestamp,\n        description TEXT,\n        location varchar(255) not null,\n        title varchar(255) not null,\n        primary key (id)\n    )\n2026-06-16T16:51:49.457Z  INFO 13556 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'\n2026-06-16T16:51:49.486Z  INFO 13556 --- [           main] c.e.d.repository.ReviewRepositoryTest    : Started ReviewRepositoryTest in 0.188 seconds (process running for 2.842)\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        reviews\n        (comment, created_at, rating, terrain_id, updated_at, user_id) \n    values\n        (?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        reviews\n        (comment, created_at, rating, terrain_id, updated_at, user_id) \n    values\n        (?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\n[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.217 s -- in com.example.demo.repository.ReviewRepositoryTest\n[INFO] Running com.example.demo.repository.FavoriteRepositoryTest\n2026-06-16T16:51:49.502Z  INFO 13556 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.demo.repository.FavoriteRepositoryTest]: FavoriteRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.\n2026-06-16T16:51:49.505Z  INFO 13556 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.repository.FavoriteRepositoryTest\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        favorites\n        (created_at, terrain_id, updated_at, user_id) \n    values\n        (?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        favorites\n        (created_at, terrain_id, updated_at, user_id) \n    values\n        (?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\n[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in com.example.demo.repository.FavoriteRepositoryTest\n[INFO] Running com.example.demo.repository.TerrainImageRepositoryTest\n2026-06-16T16:51:49.516Z  INFO 13556 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.demo.repository.TerrainImageRepositoryTest]: TerrainImageRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.\n2026-06-16T16:51:49.519Z  INFO 13556 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.repository.TerrainImageRepositoryTest\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        terrain_images\n        (image_path, terrain_id, uploaded_at) \n    values\n        (?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        terrain_images\n        (image_path, terrain_id, uploaded_at) \n    values\n        (?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\n[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in com.example.demo.repository.TerrainImageRepositoryTest\n[INFO] Running com.example.demo.repository.PaymentRepositoryTest\n2026-06-16T16:51:49.530Z  INFO 13556 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.demo.repository.PaymentRepositoryTest]: PaymentRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.\n2026-06-16T16:51:49.533Z  INFO 13556 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.repository.PaymentRepositoryTest\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        bookings\n        (created_at, end_date, renter_id, start_date, status, terrain_id, total_price, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        payments\n        (amount_paid, booking_id, payment_date, payment_method, status, transaction_id) \n    values\n        (?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        bookings\n        (created_at, end_date, renter_id, start_date, status, terrain_id, total_price, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        payments\n        (amount_paid, booking_id, payment_date, payment_method, status, transaction_id) \n    values\n        (?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\n[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in com.example.demo.repository.PaymentRepositoryTest\n[INFO] Running com.example.demo.repository.BookingRepositoryTest\n2026-06-16T16:51:49.545Z  INFO 13556 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.demo.repository.BookingRepositoryTest]: BookingRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.\n2026-06-16T16:51:49.547Z  INFO 13556 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.repository.BookingRepositoryTest\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        bookings\n        (created_at, end_date, renter_id, start_date, status, terrain_id, total_price, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        bookings\n        (created_at, end_date, renter_id, start_date, status, terrain_id, total_price, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\n[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in com.example.demo.repository.BookingRepositoryTest\n[INFO] Running com.example.demo.repository.TerrainRepositoryTest\n2026-06-16T16:51:49.559Z  INFO 13556 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.demo.repository.TerrainRepositoryTest]: TerrainRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.\n2026-06-16T16:51:49.564Z  INFO 13556 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.repository.TerrainRepositoryTest\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\nHibernate: \n    insert \n    into\n        terrains\n        (area_size, available_from, available_to, created_at, description, is_available, location, main_image_id, owner_id, price_per_day, title, updated_at) \n    values\n        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\nHibernate: \n    select\n        last_insert_rowid()\n[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in com.example.demo.repository.TerrainRepositoryTest\n[INFO] \n[INFO] Results:\n[INFO] \n[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0\n[INFO] \n[INFO] ------------------------------------------------------------------------\n[INFO] BUILD SUCCESS\n[INFO] ------------------------------------------------------------------------\n[INFO] Total time:  3.533 s\n[INFO] Finished at: 2026-06-16T16:51:49Z\n[INFO] ------------------------------------------------------------------------"
+}
+
+TASK [Backup the database (MySQL Db)] ******************************************
+changed: [web_server]
+
+TASK [Show backup status] ******************************************************
+ok: [web_server] => {
+    "msg": "MySQL database has been backed up successfully to /app/database_backup.sql"
+}
+
+PLAY RECAP *********************************************************************
+web_server                 : ok=11   changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=2   
+
+Finished: SUCCESS

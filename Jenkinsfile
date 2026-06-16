@@ -16,10 +16,8 @@ pipeline {
         stage('Build and Test') {
             steps {
                 echo 'Building and testing the Spring Boot application...'
-                // Make Maven wrapper executable
-                sh 'chmod +x mvnw'
-                // Run tests using the SQLite test database configuration
-                sh './mvnw clean test -Dspring.profiles.active=test'
+                // Run tests inside the web_server Docker container
+                sh 'docker exec web_server ./mvnw clean test -Dspring.profiles.active=test'
             }
         }
 
