@@ -40,7 +40,7 @@ pipeline {
                 subject: "Build ERROR: Job '${env.JOB_NAME}' [${env.BUILD_NUMBER}]",
                 body: """
                     <p>FAILED: Job '${env.JOB_NAME}' [${env.BUILD_NUMBER}]</p>
-                    <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.BUILD_URL}</a>&QUOT;</p>
+                    <p>Check console output at: <a href='${env.BUILD_URL}'>${env.BUILD_URL}</a></p>
                 """,
                 mimeType: 'text/html',
                 recipientProviders: [
