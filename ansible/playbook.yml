@@ -1,0 +1,59 @@
+---
+- name: Web Server Operations (CHOICE_A)
+  hosts: web
+  gather_facts: no
+  tasks:
+    - name: Install required CLI tools (composer, npm, mysql-client, sqlite3)
+      ansible.builtin.raw: apt-get update && apt-get install -y composer npm mysql-client sqlite3 php-cli
+      ignore_errors: yes
+
+    - name: Ensure no local changes exist before pulling
+      ansible.builtin.command: git reset --hard
+      args:
+        chdir: /app
+
+    - name: Run git pull
+      ansible.builtin.command: git pull origin main
+      args:
+        chdir: /app
+
+    - name: Build composer
+      ansible.builtin.command: composer install --no-interaction
+      args:
+        chdir: /app
+      ignore_errors: yes
+      register: composer_result
+
+    - name: Show composer output
+      debug:
+        var: composer_result.stdout
+
+    - name: Build npm
+      ansible.builtin.command: npm install
+      args:
+        chdir: /app
+      ignore_errors: yes
+      register: npm_result
+
+    - name: Show npm output
+      debug:
+        var: npm_result.stdout
+
+    - name: Run tests against SQLite db
+      ansible.builtin.command: ./mvnw test -Dspring.profiles.active=test
+      args:
+        chdir: /app
+      ignore_errors: yes
+      register: test_result
+
+    - name: Show test output
+      debug:
+        var: test_result.stdout
+
+    - name: Backup the database (MySQL Db)
+      ansible.builtin.shell: mysqldump -h mysql -u root -pHello@123 Anchhy-db > /app/database_backup.sql
+      register: backup_result
+
+    - name: Show backup status
+      debug:
+        msg: "MySQL database has been backed up successfully to /app/database_backup.sql"
