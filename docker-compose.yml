@@ -12,6 +12,18 @@ services:
       - mysql
     restart: unless-stopped
 
+  web_load_balancer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web_load_balancer
+    ports:
+      - "8090:80"
+      - "2225:22"
+    depends_on:
+      - mysql
+    restart: unless-stopped
+
   mysql:
     image: mysql:8
     container_name: mysql_db
