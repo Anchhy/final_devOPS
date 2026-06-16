@@ -1,0 +1,7 @@
+Tables_in_Anchhy-db
+bookings
+favorites
+payments
+reviews
+terrain_images
+terrains
